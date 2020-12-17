@@ -1,14 +1,14 @@
 {
   "name": "scratch",
   "version": "1.0.0",
-  "description": "Solo Project for Codesmith",
+  "description": "Scratch Project",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production nodemon server/server.js",
     "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development webpack serve & nodemon server/server.js"
   },
-  "author": "Adam Wilson",
+  "author": "RLBF",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.0.4",
@@ -47,10 +47,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aswilson87/ScratchProject.git"
+    "url": "git+https://github.com/Team-RLBF/ScratchProject"
   },
   "bugs": {
-    "url": "https://github.com/aswilson87/ScratchProject/issues"
+    "url": "https://github.com/Team-RLBF/ScratchProject/issues"
   },
-  "homepage": "https://github.com/aswilson87/ScratchProject#readme"
+  "homepage": "https://github.com/Team-RLBF/ScratchProject#readme"
 }
