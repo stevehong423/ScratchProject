@@ -8,7 +8,6 @@ const ShoppingContainer = () => {
         <div>
            <h1>Shopping List</h1> 
            <ShoppingItem />
-           <UpdateButton />
         </div>
     )
 }

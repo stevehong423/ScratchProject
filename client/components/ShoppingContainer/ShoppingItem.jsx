@@ -19,7 +19,7 @@ const ShoppingItem = () => {
     <div className="bg-white shadow overflow-hidden sm:rounded-md" id="item-container">
     <ul className="divide-y divide-gray-200">
     <li>
-      <a href="#" className="block hover:bg-gray-50">
+      {/* <a href="#" className="block hover:bg-gray-50"> */}
         <div className="px-4 py-4 sm:px-6">
           <div className="flex items-center justify-between">
             <p className="text-lg font-medium text-indigo-600 truncate" style={{color: "darkblue", fontSize: "6vh", letterSpacing: ".10em"}}>
@@ -34,7 +34,7 @@ const ShoppingItem = () => {
                 <i>Dairy</i>
               </p>
             </div>
-            <div className="text-lg font-medium text-gray-500 truncate">
+            <div className="text-lg font-medium text-gray-500 truncate" style={{marginLeft: "6%"}}>
               <QuantityButtons />
             </div>
             <div className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
@@ -42,7 +42,7 @@ const ShoppingItem = () => {
             </div>
           </div>
         </div>
-      </a>
+      {/* </a> */}
     </li>
   </ul>
 </div>
