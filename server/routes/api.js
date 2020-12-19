@@ -1,9 +1,11 @@
-import { Router } from 'express';
-const router = Router();
+const express = require('express');
+const { Router } = express;
+const { shopping } = require('./shoppingRoutes.js');
 
+const apiRouter = Router();
 // joins pantryRoutes and shoppingRoutes
-router.use('/pantry', require('pantryRoutes.js'));
+//apiRouter.use('/pantry', require('pantryRoutes.js'));
 
-router.use('/shopping', require('shoppingRoutes.js'));
+apiRouter.use('/shopping', shopping);
 
-module.export = router;
+module.exports = apiRouter;
