@@ -1,6 +1,6 @@
 import { Router } from 'express';
 const pantry = Router();
-import pantryController from ('server/controllers/pantryController/pantryController.js');
+import pantryController from ('server/controllers/pantryControllers/pantryController.js');
 
 // output: return entire pantry table as JSON
 pantry.get(

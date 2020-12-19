@@ -1,6 +1,6 @@
 import { Router } from 'express';
 const shopping = Router();
-import shoppingController from ('server/controllers/shoppingController/shoppingController.js');
+import shoppingController from ('server/controllers/shoppingControllers/shoppingController.js');
 
 // output: entire shopping table as JSON
 shopping.get(
