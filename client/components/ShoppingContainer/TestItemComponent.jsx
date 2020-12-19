@@ -6,12 +6,12 @@ import AddButton from './AddButton.jsx';
 import MinusButton from './MinusButton.jsx';
 
 const TestItemComponent = () => {
-
+  
   const dispatch = useDispatch();
   const shoppingList = useSelector((state) => state.shopping.shoppingList)
 
-  useEffect(() => {dispatch(loadShoppingItem('text'))}, [])
-  console.log(shoppingList)
+  useEffect(() => {dispatch(loadShoppingItem(shoppingList))}, [])
+  console.log(shoppingList[0].itemName)
 
   return (
     <div>
@@ -20,12 +20,12 @@ const TestItemComponent = () => {
           <Row className="pb-2" style={{height: "50%", display: "flex", alignItems: "center"}}>
             <Col md="auto" style={{width: "33%"}}>
               <Card.Title style={{fontSize: '3vh'}}>
-                Item Name
+                {shoppingList[0].itemName}
               </Card.Title>
             </Col>
             <Col style={{width: "33%"}}>
               <Card.Text className="text-center">
-                Qty: <strong style={{fontSize: '3vh'}}>3</strong>
+  Qty: <strong style={{fontSize: '3vh'}}>{shoppingList[0].qty}</strong>
               </Card.Text>
             </Col>
             <Col className="text-right" style={{width: "33%"}}>
@@ -35,7 +35,7 @@ const TestItemComponent = () => {
           <Row className="pt-2" style={{height: "50%"}}>
             <Col style={{width: "33%"}}>
               <Card.Text>
-                <i>Category</i>
+                <i>{shoppingList[0].category}</i>
               </Card.Text>
             </Col>
             <Col className="text-center" style={{width: "33%", display: 'flex', justifyContent: 'center'}}>

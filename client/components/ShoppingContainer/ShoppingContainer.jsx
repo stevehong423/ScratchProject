@@ -7,7 +7,6 @@ const ShoppingContainer = () => {
     return (
         <div>
            <h1>Shopping List</h1> 
-           <ShoppingItem />
            <TestItemComponent />
         </div>
     )
