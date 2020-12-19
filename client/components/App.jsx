@@ -8,7 +8,6 @@ const App = () => {
     return (
         <div>
             <ShoppingContainer />
-            <ShoppingItem />
         </div>
     )
 }
