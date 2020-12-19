@@ -1,6 +1,6 @@
 import React from 'react';
 import ShoppingItem from './ShoppingItem.jsx';
-import UpdateButton from './UpdateButton.jsx';
+import TestItemComponent from './TestItemComponent.jsx'
 
 
 const ShoppingContainer = () => {
@@ -8,6 +8,7 @@ const ShoppingContainer = () => {
         <div>
            <h1>Shopping List</h1> 
            <ShoppingItem />
+           <TestItemComponent />
         </div>
     )
 }

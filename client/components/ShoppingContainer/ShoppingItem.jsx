@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { loadShoppingItem, LOAD_SHOPPING_ITEM } from '../../store/actions/shoppingActions';
 import UpdateButton from './UpdateButton.jsx';
 import DeleteButton from './DeleteButton.jsx';
-import QuantityButtons from './QuantityButtons.jsx';
 
 
 const ShoppingItem = () => {
@@ -34,8 +33,7 @@ const ShoppingItem = () => {
                 <i>Dairy</i>
               </p>
             </div>
-            <div className="text-lg font-medium text-gray-500 truncate" style={{marginLeft: "6%"}}>
-              <QuantityButtons />
+            <div>
             </div>
             <div className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
               <DeleteButton />

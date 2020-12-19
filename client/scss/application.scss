@@ -2,20 +2,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-#minus-btn:hover {
-  color: blue;
-}
-
-#plus-btn:hover {
-  color: blue;
-}
-
 #shopping-update-btn {
-  background-color: white;
-  color: skyblue;
-  border: 1px solid skyblue;
-  width: 70px;
-  justify-content: center;
+  background-color: red;
+  color: blue;
 }
 
 #shopping-update-btn:hover {
@@ -37,4 +26,19 @@
 
 #item-container {
   height: 20vh;
+  border: 1px solid lightgray;
+}
+
+#update-btn:hover {
+  background-color: white;
+  color: #1f9bcf;
+  border: 1px solid #1f9bcf;
+}
+
+#minus-btn:hover {
+  color: black;
+}
+
+#add-btn:hover {
+  color: black;
 }
