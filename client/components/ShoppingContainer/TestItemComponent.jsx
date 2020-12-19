@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { loadShoppingItem, LOAD_SHOPPING_ITEM } from '../../store/actions/shoppingActions';
 import { Row, Col, Card, Button } from 'react-bootstrap';
 import AddButton from './AddButton.jsx';
 import MinusButton from './MinusButton.jsx';
 
 const TestItemComponent = () => {
+
+  const dispatch = useDispatch();
+  const shoppingList = useSelector((state) => state.shopping.shoppingList)
+
+  useEffect(() => {dispatch(loadShoppingItem('text'))}, [])
+  console.log(shoppingList)
+
   return (
     <div>
       <Card className='my-3 p-1 rounded' style={{width:"100%", height:"16vh"}}>
