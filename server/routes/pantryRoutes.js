@@ -1,6 +1,6 @@
-import { Router } from 'express';
-const pantry = Router();
-import pantryController from ('server/controllers/pantryController/pantryController.js');
+const express = require("express");
+const pantry = express.Router();
+const pantryController = require('../controllers/pantryControllers/pantryController.js');
 
 // output: return entire pantry table as JSON
 pantry.get(
@@ -8,9 +8,7 @@ pantry.get(
     
 
     (req, res) => {
-        return res.status(200).json({
-            pantry: res.locals.pantry,
-        });
+        return res.status(200).json(res.locals.pantry);
     }
 );
 
@@ -21,9 +19,7 @@ pantry.post(
     
 
     (req, res) => {
-        return res.status(200).json({
-            pantry: res.locals.pantry,
-        });
+        return res.status(200).json(res.locals.pantry);
     }
 );
 
@@ -34,9 +30,7 @@ pantry.put(
     
 
     (req, res) => {
-        return res.status(200).json({
-            pantry: res.locals.pantry,
-        });
+        return res.status(200).json(res.locals.pantry);
     }
 );
 
@@ -47,9 +41,7 @@ pantry.put(
     
 
     (req, res) => {
-        return res.status(200).json({
-            pantry: res.locals.pantry,
-        });
+        return res.status(200).json(res.locals.pantry);
     }
 );
 
@@ -60,9 +52,7 @@ pantry.put(
     
 
     (req, res) => {
-        return res.status(200).json({
-            pantry: res.locals.pantry,
-        });
+        return res.status(200).json(res.locals.pantry);
     }
 );
 
@@ -73,9 +63,7 @@ pantry.delete(
     
 
     (req, res) => {
-        return res.status(200).json({
-            pantry: res.locals.pantry,
-        });
+        return res.status(200).json(res.locals.pantry);
     }
 );
 

@@ -1,6 +1,6 @@
-import { Router } from 'express';
-const shopping = Router();
-import shoppingController from ('server/controllers/shoppingController/shoppingController.js');
+const express = require("express");
+const shopping = express.Router();
+const pantryController = require('../controllers/shoppingControllers/shoppingController.js');
 
 // output: entire shopping table as JSON
 shopping.get(
@@ -8,9 +8,7 @@ shopping.get(
     
 
     (req, res) => {
-        return res.status(200).json({
-            shopping: res.locals.shopping,
-        });
+        return res.status(200).json(res.locals.shopping);
     }
 );
 
@@ -21,22 +19,18 @@ shopping.post(
     
 
     (req, res) => {
-        return res.status(200).json({
-            shopping: res.locals.shopping,
-        });
+        return res.status(200).json(res.locals.shopping,);
     }
 );
 
-// input: unknown
+// input: js object
 // output: entire shopping table as JSON
 shopping.put(
     '/update/:id',
     
 
     (req, res) => {
-        return res.status(200).json({
-            shopping: res.locals.shopping,
-        });
+        return res.status(200).json(res.locals.shopping);
     }
 );
 
@@ -47,9 +41,7 @@ shopping.delete(
     
 
     (req, res) => {
-        return res.status(200).json({
-            shopping: res.locals.shopping,
-        });
+        return res.status(200).json(res.locals.shopping);
     }
 );
 
@@ -60,10 +52,7 @@ shopping.post(
     
 
     (req, res) => {
-        return res.status(200).json({
-            shopping: res.locals.shopping,
-            pantry: res.locals.pantry,
-        });
+        return res.status(200).json();
     }
 );
 

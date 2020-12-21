@@ -5,7 +5,7 @@ const path = require("path");
 
 app.use(express.json());
 
-const apiRouter = require('server/routes/api.js');
+const apiRouter = require('./routes/api.js');
 
 // statically serve everything in the build folder on the route '/build'
 if (process.env.NODE_ENV === "production") {
