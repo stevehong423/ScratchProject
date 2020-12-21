@@ -1,6 +1,6 @@
 const express = require('express');
 const { Router } = express;
-const { shopping } = require('./shoppingRoutes.js');
+const shopping = require('./shoppingRoutes.js');
 
 const apiRouter = Router();
 // joins pantryRoutes and shoppingRoutes

@@ -1,15 +1,21 @@
 const db = require('../../dbSetup.js');
 
 const shoppingDelete = (req, res, next) => {
-  console.log('in shoppingDelete');
   const item_id = req.params.id;
+  console.log(
+    'file: shoppingDelete.js ~ line 5 ~ shoppingDelete ~ item_id',
+    item_id,
+  );
   const qStr = `DELETE FROM shopping 
   WHERE _id = ${item_id}
   RETURNING *;`;
   db.query(qStr)
     .then((qres) => {
       res.locals.deletedItem = qres.rows;
-      console.log('in middleware, ', res.locals.deletedItem);
+      console.log(
+        'file: shoppingDelete.js ~ line 12 ~ .then ~ res.locals.deletedItem',
+        res.locals.deletedItem,
+      );
       return next();
     })
     .catch(() =>

@@ -3,13 +3,6 @@ const shoppingController = require('../controllers/shoppingControllers/shoppingC
 
 const shopping = Router();
 
-// output: entire shopping table as JSON
-shopping.get('/', shoppingController.get, (req, res) => {
-  return res.status(200).json({
-    shopping: res.locals.shopping,
-  });
-});
-
 // input: js object with key-value pairs from shopping table
 // output: entire shopping table as JSON
 shopping.post(
@@ -62,4 +55,22 @@ shopping.post(
   },
 );
 
-module.exports = { shopping };
+shopping.get(
+  '/refresh',
+  shoppingController.refresh,
+  shoppingController.get,
+  (req, res) => {
+    return res.status(200).json({
+      shopping: res.locals.shopping,
+    });
+  },
+);
+
+// output: entire shopping table as JSON
+shopping.get('/', shoppingController.get, (req, res) => {
+  return res.status(200).json({
+    shopping: res.locals.shopping,
+  });
+});
+
+module.exports = shopping;

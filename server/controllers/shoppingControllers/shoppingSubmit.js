@@ -1,14 +1,20 @@
 const db = require('../../dbSetup.js');
 
 const shoppingSubmit = (req, res, next) => {
-  console.log('in shoppingSubmit');
   const newItem = req.body.newItem;
+  console.log(
+    'file: shoppingSubmit.js ~ line 5 ~ shoppingSubmit ~ newItem',
+    newItem,
+  );
   const qStr = `INSERT INTO public.shopping (item_name, note, unit, list_qty, category) VALUES (${newItem.item_name}, ${newItem.note}, ${newItem.unit}, ${newItem.list_qty}, ${newItem.category})
   RETURNING *;`;
   db.query(qStr)
     .then((qres) => {
       res.locals.newItem = qres.rows;
-      console.log('in middleware, ', res.locals.newItem);
+      console.log(
+        'file: shoppingSubmit.js ~ line 11 ~ .then ~ res.locals.newItem',
+        res.locals.newItem,
+      );
       return next();
     })
     .catch(() =>

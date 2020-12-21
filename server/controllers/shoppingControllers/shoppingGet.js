@@ -1,12 +1,14 @@
 const db = require('../../dbSetup.js');
 
 const shoppingGet = (req, res, next) => {
-  console.log('in shoppingGet');
   const qStr = `SELECT * FROM shopping;`;
   db.query(qStr)
     .then((qres) => {
       res.locals.shopping = qres.rows;
-      console.log('in middleware, ', res.locals.shopping);
+      console.log(
+        'file: shoppingGet.js ~ line 9 ~ .then ~ res.locals.shopping',
+        res.locals.shopping,
+      );
       return next();
     })
     .catch(() =>

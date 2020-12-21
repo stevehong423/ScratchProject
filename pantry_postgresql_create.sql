@@ -22,6 +22,7 @@ CREATE TABLE public.pantry (
 
 CREATE TABLE public.shopping (
 	_id serial NOT NULL,
+	pantry_id integer,
 	item_name varchar NOT NULL,
 	note varchar,
 	unit varchar,
@@ -35,5 +36,7 @@ INSERT INTO public.pantry (item_name, note, unit, qty, category, par) VALUES ('M
 INSERT INTO public.pantry (item_name, note, unit, qty, category, par) VALUES ('Bread', 'White', 'Loaf', '4', 'Pantry', '3');
 
 INSERT INTO public.shopping (item_name, note, unit, list_qty, category) VALUES ('Sam Adams', 'Lager', 'Bottle', '12', 'Alcohol');
+INSERT INTO public.shopping (item_name, note, unit, list_qty, category) VALUES ('Green beans', 'French Cut', 'Can', '1', 'Canned Goods');
+INSERT INTO public.shopping (item_name, note, unit, list_qty, category) VALUES ('Roast Beef', 'Sandwich Cut', 'pkg', '1', 'Deli');
 
 -- psql -d postgres://xvzpelsn:FR_araMqHVuQNjR1SK2lJdaztmjC77Gd@suleiman.db.elephantsql.com:5432/xvzpelsn -f pantry_postgresql_create.sql
