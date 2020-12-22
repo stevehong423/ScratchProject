@@ -3,13 +3,17 @@ const db = require('../../dbSetup.js');
 const shoppingUpdate = (req, res, next) => {
   const item_id = req.params.id;
   console.log(
+    'file: shoppingUpdate.js ~ line 5 ~ shoppingUpdate ~ req.params.id',
+    req.params.id,
+  );
+  console.log(
     'file: shoppingUpdate.js ~ line 5 ~ shoppingUpdate ~ item_id',
     item_id,
   );
-  const item = req.body.itemDetails;
+  const item = req.body;
   console.log('file: shoppingUpdate.js ~ line 7 ~ shoppingUpdate ~ item', item);
   const qStr = `UPDATE shopping 
-  SET (item_name, note, unit, list_qty, category) = (${item.item_name}, ${item.note}, ${item.unit}, ${item.list_qty}, ${item.category}) 
+  SET (item_name, note, unit, list_qty, buy_qty, category) = ('${item.item_name}', '${item.note}', '${item.unit}', ${item.list_qty}, ${item.buy_qty}, '${item.category}') 
   WHERE _id = ${item_id}
   RETURNING *;`;
   db.query(qStr)

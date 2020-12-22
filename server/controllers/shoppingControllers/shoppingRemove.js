@@ -1,6 +1,6 @@
 const db = require('../../dbSetup.js');
 
-const shoppingDelete = (req, res, next) => {
+const shoppingRemove = (req, res, next) => {
   const item_id = req.params.id;
   console.log(
     'file: shoppingDelete.js ~ line 5 ~ shoppingDelete ~ item_id',
@@ -26,4 +26,4 @@ const shoppingDelete = (req, res, next) => {
     );
 };
 
-module.exports = shoppingDelete;
+module.exports = shoppingRemove;

@@ -27,6 +27,7 @@ CREATE TABLE public.shopping (
 	note varchar,
 	unit varchar,
 	list_qty integer,
+	buy_qty integer,
 	category varchar,
 	CONSTRAINT shopping_pk PRIMARY KEY (_id)
 );
