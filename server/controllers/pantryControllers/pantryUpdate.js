@@ -1,8 +1,3 @@
-// pantry update item middleware
-// input: an object & id params
-// output: entire pantry table, updated with new item updated
-
-// get database here
 const db = require('../../db.js');
 
 const pantryUpdate = async (req, res, next) => {
@@ -18,10 +13,6 @@ const pantryUpdate = async (req, res, next) => {
     let id = req.params.id;
 
     try {
-        // find item in db by id
-        // let getPantryById = 'SELECT * FROM pantry where _id = $1;';
-        // let values = [id];
-        
         // update db
         let updatePantryById = 'UPDATE pantry SET note = $1, unit = $2, qty = $3, par = $4;';
         let values = [newNote, newUnit, newQty, newPar];

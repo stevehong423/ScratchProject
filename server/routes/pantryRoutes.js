@@ -1,12 +1,11 @@
-const express = require("express");
+const express = require('express');
 const pantry = express.Router();
 const pantryController = require('../controllers/pantryControllers/pantryController.js');
 
 // output: return entire pantry table as JSON
 pantry.get(
     '/',
-    
-
+    pantryController.pantryGet,
     (req, res) => {
         return res.status(200).json(res.locals.pantry);
     }
@@ -16,8 +15,8 @@ pantry.get(
 // output: return entire pantry table as JSON
 pantry.post(
     '/submit',
-    
-
+    pantryController.pantrySubmit,
+    pantryController.pantryGet,
     (req, res) => {
         return res.status(200).json(res.locals.pantry);
     }
@@ -27,8 +26,8 @@ pantry.post(
 // output: return entire pantry table as JSON 
 pantry.put(
     '/update/:id',
-    
-
+    pantryController.pantryUpdate,
+    pantryController.pantryGet,
     (req, res) => {
         return res.status(200).json(res.locals.pantry);
     }
@@ -38,8 +37,8 @@ pantry.put(
 // output: return entire pantry table as JSON
 pantry.put(
     '/itemup/:id',
-    
-
+    pantryController.pantryItemUp,
+    pantryController.pantryGet,
     (req, res) => {
         return res.status(200).json(res.locals.pantry);
     }
@@ -49,8 +48,8 @@ pantry.put(
 // output: return entire pantry table as JSON
 pantry.put(
     '/itemdown/:id',
-    
-
+    pantryController.pantryItemDown,
+    pantryController.pantryGet,
     (req, res) => {
         return res.status(200).json(res.locals.pantry);
     }
@@ -60,8 +59,8 @@ pantry.put(
 // output: return entire pantry table as JSON
 pantry.delete(
     '/delete/:id',
-    
-
+    pantryController.pantryDelete,
+    pantryController.pantryGet,
     (req, res) => {
         return res.status(200).json(res.locals.pantry);
     }

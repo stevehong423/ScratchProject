@@ -1,11 +1,6 @@
-// pantry update item qty down middleware
-// input: id params
-// output: qty down in table
-
-// get database here
 const db = require('../../db.js');
 
-const pantryItemDown = (req, res, next) => {
+const pantryItemDown = async (req, res, next) => {
     let id = req.params.id;
 
     try {

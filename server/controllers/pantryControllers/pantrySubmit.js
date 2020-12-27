@@ -1,8 +1,3 @@
-// pantry submit middleware
-// input: an object
-// output: entire pantry table, updated with the new item submitted
-
-// get database here
 const db = require('../../db.js');
 
 const pantrySubmit = async (req, res, next) => {
@@ -18,6 +13,7 @@ const pantrySubmit = async (req, res, next) => {
 
     try {
         // check to see if item submitted already exists in db
+        // use parameterized query
         let getPantryByName = 'SELECT * FROM pantry where item_name = $1;';
         let values = [item_name];
 
@@ -36,7 +32,7 @@ const pantrySubmit = async (req, res, next) => {
                 message: {
                     err: 'Error occurred in pantryController. Check server logs for more details.',
                 }
-            })
+            });
         }
     } catch (err) {
         console.log('Error in pantrySubmit middleware :', err);

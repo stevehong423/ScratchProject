@@ -1,7 +1,3 @@
-// pantry get middleware
-// return the entire pantry table as a JSON
-
-// get database here
 const db = require('../../db.js');
 
 const pantryGet = async (req, res, next) => {

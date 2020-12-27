@@ -1,9 +1,3 @@
-// pantry update item qty up middleware
-// middleware to delete item in pantry table
-// input: id params
-// output: delete item in table
-
-// get database here
 const db = require('../../db.js');
 
 const pantryDelete = async (req, res, next) => {
