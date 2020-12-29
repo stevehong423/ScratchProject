@@ -32,6 +32,13 @@ CREATE TABLE public.shopping (
 	CONSTRAINT shopping_pk PRIMARY KEY (_id)
 );
 
+CREATE TABLE public.auth (
+	_id serial NOT NULL,
+	user_name varchar NOT NULL,
+	passkey varchar NOT NULL,
+	CONSTRAINT auth_pk PRIMARY KEY (_id)
+);
+
 INSERT INTO public.pantry (item_name, note, unit, qty, category, par) VALUES ('Eggs', 'Brown', 'Each', '10', 'Fridge', '12');
 INSERT INTO public.pantry (item_name, note, unit, qty, category, par) VALUES ('Milk', 'Whole', 'Gallon', '1', 'Fridge', '1');
 INSERT INTO public.pantry (item_name, note, unit, qty, category, par) VALUES ('Bread', 'White', 'Loaf', '4', 'Pantry', '3');
