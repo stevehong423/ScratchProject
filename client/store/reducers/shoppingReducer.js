@@ -1,6 +1,6 @@
 import { LOAD_SHOPPING_ITEM } from '../actions/shoppingActions.js';
 
-let initialState = { shoppingList: [], pantryList: [], editedShoppingItem: {}, editedPantryItem: {} };
+let initialState = { shoppingList: [{itemName: 'Milk', category: 'Dairy', qty: 3}], pantryList: [], editedShoppingItem: {}, editedPantryItem: {}};
 
 const shoppingReducer = (state = initialState, action) => {
     switch (action.type){
