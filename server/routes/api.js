@@ -9,4 +9,4 @@ router.use('/pantry', pantryRoutes);
 
 // router.use('/shopping', shoppingRoutes);
 
-module.export = router;
+module.exports = router;
