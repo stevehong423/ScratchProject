@@ -2,7 +2,7 @@ const db = require('../../dbSetup.js');
 
 const shoppingRefresh = (req, res, next) => {
   console.log('in shoppingRefresh');
-  // remove items from shopping that were added by pantry where (list_qty <= 0)
+  // remove items from shopping that were where (list_qty <= 0)
   // find items in pantry that are low on stock where (par > qty)
   // add items to shopping (list_qty = par - qty, pantry_id = pantry._id)
   let qStr = `DELETE FROM shopping WHERE list_qty <= 0;`;

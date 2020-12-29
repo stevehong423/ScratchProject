@@ -8,7 +8,7 @@ const shopping = Router();
 shopping.get(
   '/submit',
   shoppingController.submit,
-  shoppingController.get,
+  shoppingController.load,
   (req, res) => {
     return res.status(200).json(res.locals.shopping);
   },
@@ -19,7 +19,7 @@ shopping.get(
 shopping.get(
   '/update/:id',
   shoppingController.update,
-  shoppingController.get,
+  shoppingController.load,
   (req, res) => {
     return res.status(200).json(res.locals.shopping);
   },
@@ -30,7 +30,7 @@ shopping.get(
 shopping.get(
   '/remove/:id',
   shoppingController.remove,
-  shoppingController.get,
+  shoppingController.load,
   (req, res) => {
     return res.status(200).json(res.locals.shopping);
   },
@@ -41,7 +41,7 @@ shopping.get(
 shopping.get(
   '/checkout',
   shoppingController.checkout,
-  shoppingController.get,
+  shoppingController.load,
   (req, res) => {
     return res.status(200).json(res.locals.shopping);
   },
@@ -50,7 +50,7 @@ shopping.get(
 shopping.get(
   '/refresh',
   shoppingController.refresh,
-  shoppingController.get,
+  shoppingController.load,
   (req, res) => {
     return res.status(200).json(res.locals.shopping);
   },
@@ -59,14 +59,14 @@ shopping.get(
 shopping.get(
   '/addFromPantry/:id',
   shoppingController.addFromPantry,
-  shoppingController.get,
+  shoppingController.load,
   (req, res) => {
     return res.status(200).json(res.locals.shopping);
   },
 );
 
 // output: entire shopping table as JSON
-shopping.get('/', shoppingController.get, (req, res) => {
+shopping.get('/', shoppingController.load, (req, res) => {
   return res.status(200).json(res.locals.shopping);
 });
 
