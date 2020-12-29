@@ -14,7 +14,7 @@ shopping.get(
   },
 );
 
-// input: unknown
+// input: js object
 // output: entire shopping table as JSON
 shopping.get(
   '/update/:id',

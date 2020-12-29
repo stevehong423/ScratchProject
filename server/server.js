@@ -4,7 +4,6 @@ const app = express();
 const path = require('path');
 
 const apiRouter = require('./routes/api.js');
-
 app.use(express.json());
 
 // statically serve everything in the build folder on the route '/build'
