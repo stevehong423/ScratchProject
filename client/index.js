@@ -7,6 +7,7 @@ import App from "./components/App.jsx";
 // import "react-date-picker/dist/DatePicker.css";
 import "tailwindcss/tailwind.css";
 import "./scss/application.scss";
+import './bootstrap.min.css';
 
 render (
     <Provider store={store}>

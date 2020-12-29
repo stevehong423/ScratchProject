@@ -1,5 +1,5 @@
 import axios from 'axios';
-const arr = [{property: 'value'}]
+
 
 //Get Shopping Items 
 export const getShoppingItems = () => (dispatch) => {

@@ -4,6 +4,5 @@ import reducers from './reducers/combineReducers.js';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
+
 export default store;
-
-

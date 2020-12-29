@@ -4,20 +4,21 @@
   "description": "Scratch Project",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production nodemon server/server.js",
-    "build": "NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=production nodemon server/server.js",
+    "build": "cross-env NODE_ENV=production webpack",
     "dev": "cross-env NODE_ENV=development concurrently \"webpack serve\" \"nodemon server/server.js\""
-
   },
   "author": "RLBF",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.0.4",
     "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "postcss-import": "^13.0.0",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
     "react-calendar": "^3.2.1",
     "react-date-picracker": "^8.0.5",
     "react-dom": "^17.0.1",
@@ -25,6 +26,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.1",
     "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
