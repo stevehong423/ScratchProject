@@ -44,7 +44,6 @@ const ShoppingItem = () => {
     </li>
   </ul>
 </div>
-
         </>
     )
 }
