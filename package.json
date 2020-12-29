@@ -7,7 +7,6 @@
     "start": "NODE_ENV=production nodemon server/server.js",
     "build": "NODE_ENV=production webpack",
     "dev": "cross-env NODE_ENV=development concurrently \"webpack serve\" \"nodemon server/server.js\""
-
   },
   "author": "RLBF",
   "license": "ISC",
@@ -19,7 +18,7 @@
     "postcss-import": "^13.0.0",
     "react": "^17.0.1",
     "react-calendar": "^3.2.1",
-    "react-date-picracker": "^8.0.5",
+    "react-date-picker": "^8.0.5",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",

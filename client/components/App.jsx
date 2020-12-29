@@ -1,17 +1,15 @@
-import React from 'react'
+import React from "react";
 // import './ShoppingContainer/ShoppingContainer.jsx';
-import { ShoppingContainer } from './ShoppingContainer/ShoppingContainer.jsx';
-import { ShoppingItem } from './ShoppingContainer/ShoppingItem.jsx';
-
+import { ShoppingContainer } from "./ShoppingContainer/ShoppingContainer.jsx";
+import { TabsContainer } from "./TabsContainer/TabsContainer.jsx";
 
 const App = () => {
-    return (
-        <div>
-            <ShoppingContainer />
-            <ShoppingItem />
-        </div>
-    )
-}
-
+  return (
+    <div>
+      <ShoppingContainer />
+      <TabsContainer />
+    </div>
+  );
+};
 
 export default App;

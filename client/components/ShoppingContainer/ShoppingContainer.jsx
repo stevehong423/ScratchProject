@@ -1,10 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const ShoppingContainer = () => {
-    return (
-        <div>
-           <h1>Shopping List</h1> 
-        </div>
-    )
-}
-
+  return <div>Shopping List</div>;
+};
