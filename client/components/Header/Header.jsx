@@ -9,10 +9,6 @@ export const Header = () => {
                 <h1>POCKET PANTRY</h1>
             </div>
 
-            {/* <div className='header-title'>
-                <h1>POCKET PANTRY</h1>
-            </div> */}
-
             <div className='header-buttons'>
                 <button className='btn-left'>Sign Up</button>
                 <button className='btn-right'>Sign In</button>
