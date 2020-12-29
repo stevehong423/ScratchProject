@@ -1,59 +1,73 @@
-const express = require("express");
-const shopping = express.Router();
-const pantryController = require('../controllers/shoppingControllers/shoppingController.js');
+const { Router } = require('express');
+const shoppingController = require('../controllers/shoppingControllers/shoppingController.js');
 
-// output: entire shopping table as JSON
-shopping.get(
-    '/',
-    
-
-    (req, res) => {
-        return res.status(200).json(res.locals.shopping);
-    }
-);
+const shopping = Router();
 
 // input: js object with key-value pairs from shopping table
 // output: entire shopping table as JSON
-shopping.post(
-    '/submit',
-    
-
-    (req, res) => {
-        return res.status(200).json(res.locals.shopping,);
-    }
+shopping.get(
+  '/submit',
+  shoppingController.submit,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
 );
 
 // input: js object
 // output: entire shopping table as JSON
-shopping.put(
-    '/update/:id',
-    
-
-    (req, res) => {
-        return res.status(200).json(res.locals.shopping);
-    }
+shopping.get(
+  '/update/:id',
+  shoppingController.update,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
 );
 
 // input: id of item to delete
 // output: entire shopping table as JSON
-shopping.delete(
-    '/delete/:id',
-    
-
-    (req, res) => {
-        return res.status(200).json(res.locals.shopping);
-    }
+shopping.get(
+  '/remove/:id',
+  shoppingController.remove,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
 );
 
 // input: array of js object that were purchased
 // output: entire shopping table as JSON
-shopping.post(
-    '/checkout',
-    
-
-    (req, res) => {
-        return res.status(200).json();
-    }
+shopping.get(
+  '/checkout',
+  shoppingController.checkout,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
 );
+
+shopping.get(
+  '/refresh',
+  shoppingController.refresh,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
+);
+
+shopping.get(
+  '/addFromPantry/:id',
+  shoppingController.addFromPantry,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
+);
+
+// output: entire shopping table as JSON
+shopping.get('/', shoppingController.load, (req, res) => {
+  return res.status(200).json(res.locals.shopping);
+});
 
 module.exports = shopping;
