@@ -2,7 +2,7 @@ const db = require('../../dbSetup.js');
 
 const shoppingRefresh = (req, res, next) => {
   console.log('in shoppingRefresh');
-  // remove items from shopping that were added by pantry where (list_qty <=)
+  // remove items from shopping that were added by pantry where (list_qty <= 0)
   // find items in pantry that are low on stock where (par > qty)
   // add items to shopping (list_qty = par - qty, pantry_id = pantry._id)
   let qStr = `DELETE FROM shopping WHERE list_qty <= 0;`;
@@ -13,7 +13,7 @@ const shoppingRefresh = (req, res, next) => {
         qres.rows,
       );
       qStr = `SELECT * FROM pantry WHERE par > qty;`;
-      db.query(qStr);
+      return db.query(qStr);
     })
     .then((qres) => {
       const importList = qres.rows;
@@ -32,15 +32,10 @@ const shoppingRefresh = (req, res, next) => {
         qStr = `SELECT * FROM shopping WHERE pantry_id = ${newItem._id};`;
         db.query(qStr)
           .then((qres) => {
-            pantryItem = qres.rows[0];
-            console.log(
-              'file: shoppingRefresh.js ~ line 34 ~ importList.map ~ pantryItem',
-              pantryItem,
-            );
-            return pantryItem;
+            return qres.rows[0] ? qres.rows[0] : false;
           })
           .then((pantryItem) => {
-            if (pantryItem.length === 0) {
+            if (!pantryItem) {
               qStr = `INSERT INTO shopping (pantry_id, item_name, note, unit, list_qty, category) 
         VALUES ('${newItem._id}', '${newItem.item_name}', '${newItem.note}', '${
                 newItem.unit

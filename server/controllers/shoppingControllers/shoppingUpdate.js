@@ -2,27 +2,12 @@ const db = require('../../dbSetup.js');
 
 const shoppingUpdate = (req, res, next) => {
   const item_id = req.params.id;
-  console.log(
-    'file: shoppingUpdate.js ~ line 5 ~ shoppingUpdate ~ req.params.id',
-    req.params.id,
-  );
-  console.log(
-    'file: shoppingUpdate.js ~ line 5 ~ shoppingUpdate ~ item_id',
-    item_id,
-  );
   const item = req.body;
-  console.log('file: shoppingUpdate.js ~ line 7 ~ shoppingUpdate ~ item', item);
   const qStr = `UPDATE shopping 
   SET (item_name, note, unit, list_qty, buy_qty, category) = ('${item.item_name}', '${item.note}', '${item.unit}', ${item.list_qty}, ${item.buy_qty}, '${item.category}') 
-  WHERE _id = ${item_id}
-  RETURNING *;`;
+  WHERE _id = ${item_id};`;
   db.query(qStr)
-    .then((qres) => {
-      res.locals.updatedItem = qres.rows;
-      console.log(
-        'file: shoppingUpdate.js ~ line 15 ~ .then ~ res.locals.updatedItem',
-        res.locals.updatedItem,
-      );
+    .then(() => {
       return next();
     })
     .catch(() =>
