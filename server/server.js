@@ -4,6 +4,8 @@ const app = express();
 const path = require('path');
 
 const apiRouter = require('./routes/api.js');
+const authRouter = require('./routes/authRoutes.js');
+
 app.use(express.json());
 
 // statically serve everything in the build folder on the route '/build'
@@ -16,6 +18,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use('/api', apiRouter);
+app.use('/', authRouter);
 
 app.use('*', (req, res) =>
   res.status(404).send('Unable to find the requested resource!'),

@@ -1,12 +1,11 @@
 const db = require('../../db.js');
 
 const pantryGet = (req, res, next) => {
-    // let getPantry = 'SELECT * FROM pantry WHERE user_id = $1;';
+    let getPantry = 'SELECT * FROM pantry WHERE user_id = $1;';
     // let values = [res.locals.userID];
+    let values = [1];
 
-    let getPantry = 'SELECT * FROM pantry;';
-
-    db.query(getPantry)
+    db.query(getPantry, values)
         .then((result) => {
             res.locals.pantry = result.rows;
             // console.log(res.locals.pantry);
