@@ -1,17 +1,17 @@
-const { ModuleFilenameHelpers, Module } = require('webpack');
 const db = require('../../dbSetup.js');
 const bcrypt = require('bcryptjs');
 
-const createUser = (req, res, next) => {
+const authSignup = (req, res, next) => {
   // write code here
   // take user info from client
 
-  console.log('in createUser');
+  console.log('in authSignup');
   bcrypt
     .hash(req.body.passkey, 10)
     .then((hash) => {
-      const qStr = ``;
-      db.query(qStr) //.create({username: req.body.username, password: hash})
+      const qStr = `INSERT INTO auth (user_name, passkey) VALUES (${req.body.username}, ${hash})
+      RETURNING *;`;
+      db.query(qStr)
         .then((data) => {
           res.locals.username = req.body.username;
           return next();
@@ -21,4 +21,4 @@ const createUser = (req, res, next) => {
     .catch((bcryptError) => next(bcryptError));
 };
 
-Module.exports = createUser;
+Module.exports = authSignup;

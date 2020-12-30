@@ -11,6 +11,7 @@ SET row_security = off;
 
 CREATE TABLE public.pantry (
 	_id serial NOT NULL,
+	user_id varchar NOT NULL,
 	item_name varchar NOT NULL,
 	note varchar,
 	unit varchar,
@@ -22,6 +23,7 @@ CREATE TABLE public.pantry (
 
 CREATE TABLE public.shopping (
 	_id serial NOT NULL,
+	user_id varchar NOT NULL,
 	pantry_id integer,
 	item_name varchar NOT NULL,
 	note varchar,
@@ -34,7 +36,7 @@ CREATE TABLE public.shopping (
 
 CREATE TABLE public.auth (
 	_id serial NOT NULL,
-	user_name varchar NOT NULL,
+	user_name varchar UNIQUE NOT NULL,
 	passkey varchar NOT NULL,
 	CONSTRAINT auth_pk PRIMARY KEY (_id)
 );
