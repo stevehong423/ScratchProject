@@ -10,9 +10,9 @@ const pantryItemUp = (req, res, next) => {
         .then(() => {
             return next();
         })
-        .catch(() => {
+        .catch((err) => {
             return next({
-                log: 'pantryController.pantryItemUp error',
+                log: 'pantryController.pantryItemUp ' + `${err}`,
                 message: {
                     err: 'SQL query failed'
                 }
