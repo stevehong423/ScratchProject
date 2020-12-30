@@ -1,22 +1,24 @@
 const db = require('../../db.js');
 
-const pantryGet = async (req, res, next) => {
-    // SQL command to retrieve table
-    let getPantry = 'SELECT * FROM pantry;';
+const pantryGet = (req, res, next) => {
+    let getPantry = 'SELECT * FROM pantry WHERE user_id = $1;';
+    // get userid from the cookies
+    let values = [res.locals.userID];
 
-    try {
-        let { rows } = await db.query(getPantry);
-        res.locals.pantry = rows;
-        return next();
-    } catch (err) {
-        console.log('Error in getPantry middleware :', err);
-        return next({
-            log: 'pantryController.pantryGet: ERROR: Error getting pantry data from database',
-            message: {
-                err: 'Error occurred in pantryController. Check server logs for more details.',
-            }
+    db.query(getPantry, values)
+        .then((result) => {
+            res.locals.pantry = result.rows;
+            // console.log(res.locals.pantry);
+            return next();
+        })
+        .catch(() => {
+            return next({
+                log: 'pantryController.pantryGet error',
+                message: {
+                    err: 'SQL query failed'
+                },
+            });
         });
-    }
 }
 
 module.exports = pantryGet;

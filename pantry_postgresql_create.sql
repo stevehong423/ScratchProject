@@ -11,6 +11,7 @@ SET row_security = off;
 
 CREATE TABLE public.pantry (
 	_id serial NOT NULL,
+	user_id varchar NOT NULL,
 	item_name varchar NOT NULL,
 	note varchar,
 	unit varchar,

@@ -5,6 +5,7 @@ const pantryController = require('../controllers/pantryControllers/pantryControl
 // output: return entire pantry table as JSON
 pantry.get(
     '/',
+    // add auth here
     pantryController.pantryGet,
     (req, res) => {
         return res.status(200).json(res.locals.pantry);
