@@ -2,7 +2,7 @@ import React from "react";
 
 export const Header = () => {
   return (
-    <div className="container">
+    <div className="wrapper">
       <div className="logo">
         <img
           src="https://www.flaticon.com/svg/static/icons/svg/706/706164.svg"
