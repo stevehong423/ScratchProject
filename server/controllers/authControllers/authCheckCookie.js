@@ -1,4 +1,4 @@
-const db = require('../../dbSetup');
+const db = require('../../db');
 
 const authCheckCookie = (req, res, next) => {
   // write code here
@@ -16,9 +16,12 @@ const authCheckCookie = (req, res, next) => {
       res.locals.userId = user._id;
       return next();
     })
-    .catch((err) => {
-      return next('error in authCheckCookie');
-    });
+    .catch(() =>
+      next({
+        log: 'authController.authCheckCookie error',
+        message: { err: 'SQL query failed' },
+      }),
+    );
 };
 
 module.exports = authCheckCookie;

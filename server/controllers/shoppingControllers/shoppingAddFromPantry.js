@@ -1,4 +1,4 @@
-const db = require('../../dbSetup.js');
+const db = require('../../db.js');
 
 const shoppingAddFromPantry = (req, res, next) => {
   const item_id = req.params.id;

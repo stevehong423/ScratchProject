@@ -1,4 +1,4 @@
-const db = require('../../dbSetup.js');
+const db = require('../../db.js');
 
 const shoppingCheckout = (req, res, next) => {
   console.log('in shoppingCheckout');

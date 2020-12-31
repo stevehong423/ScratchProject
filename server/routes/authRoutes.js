@@ -10,7 +10,9 @@ authRouter.post(
   authController.authSignup,
   authController.authCookie,
   (req, res) => {
-    return res.redirect('/api/');
+    console.log('attempting to redirect');
+    //res.send('signup complete');
+    res.redirect('./api/shopping/');
   },
 );
 
@@ -19,8 +21,13 @@ authRouter.post(
   authController.authSignin,
   authController.authCookie,
   (req, res) => {
-    return res.redirect('/api/');
+    res.redirect('/api/shopping/');
   },
 );
+
+// authRouter.use('/', authController.authCheckCookie, (req, res) => {
+//   res.redirect('/api/shopping/');
+//   next();
+// });
 
 module.exports = authRouter;

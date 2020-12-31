@@ -16,9 +16,8 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, '../index.html'));
   });
 }
-
-app.use('/api', apiRouter);
 app.use('/', authRouter);
+app.use('/api', apiRouter);
 
 app.use('*', (req, res) =>
   res.status(404).send('Unable to find the requested resource!'),

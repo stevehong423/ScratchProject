@@ -8,8 +8,4 @@ const apiRouter = Router();
 
 apiRouter.use('/shopping', shopping);
 
-apiRouter.use('/', authController.authCheckCookie, (req, res) => {
-  return res.redirect('/main');
-});
-
 module.exports = apiRouter;
