@@ -1,12 +1,14 @@
 const { Router } = require('express');
 const shoppingController = require('../controllers/shoppingControllers/shoppingController.js');
+const authController = require('../controllers/authControllers/authController.js');
 
 const shopping = Router();
 
 // input: js object with key-value pairs from shopping table
 // output: entire shopping table as JSON
-shopping.get(
+shopping.post(
   '/submit',
+  authController.authCheckCookie,
   shoppingController.submit,
   shoppingController.load,
   (req, res) => {
@@ -16,8 +18,9 @@ shopping.get(
 
 // input: unknown
 // output: entire shopping table as JSON
-shopping.get(
+shopping.post(
   '/update/:id',
+  authController.authCheckCookie,
   shoppingController.update,
   shoppingController.load,
   (req, res) => {
@@ -27,8 +30,9 @@ shopping.get(
 
 // input: id of item to delete
 // output: entire shopping table as JSON
-shopping.get(
+shopping.delete(
   '/remove/:id',
+  authController.authCheckCookie,
   shoppingController.remove,
   shoppingController.load,
   (req, res) => {
@@ -38,8 +42,9 @@ shopping.get(
 
 // input: array of js object that were purchased
 // output: entire shopping table as JSON
-shopping.get(
+shopping.post(
   '/checkout',
+  authController.authCheckCookie,
   shoppingController.checkout,
   shoppingController.load,
   (req, res) => {
@@ -47,8 +52,9 @@ shopping.get(
   },
 );
 
-shopping.get(
+shopping.post(
   '/refresh',
+  authController.authCheckCookie,
   shoppingController.refresh,
   shoppingController.load,
   (req, res) => {
@@ -56,8 +62,9 @@ shopping.get(
   },
 );
 
-shopping.get(
+shopping.post(
   '/addFromPantry/:id',
+  authController.authCheckCookie,
   shoppingController.addFromPantry,
   shoppingController.load,
   (req, res) => {
@@ -66,8 +73,53 @@ shopping.get(
 );
 
 // output: entire shopping table as JSON
-shopping.get('/', shoppingController.load, (req, res) => {
-  return res.status(200).json(res.locals.shopping);
-});
+shopping.get(
+  '/',
+  authController.authCheckCookie,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
+);
+
+shopping.post(
+  '/listUp/:id',
+  authController.authCheckCookie,
+  shoppingController.listUp,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
+);
+
+shopping.post(
+  '/listDown/:id',
+  authController.authCheckCookie,
+  shoppingController.listDown,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
+);
+
+shopping.post(
+  '/buyUp/:id',
+  authController.authCheckCookie,
+  shoppingController.buyUp,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
+);
+
+shopping.post(
+  '/buyDown/:id',
+  authController.authCheckCookie,
+  shoppingController.buyDown,
+  shoppingController.load,
+  (req, res) => {
+    return res.status(200).json(res.locals.shopping);
+  },
+);
 
 module.exports = shopping;

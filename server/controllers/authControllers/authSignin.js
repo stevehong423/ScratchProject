@@ -23,4 +23,4 @@ const authSignin = (req, res, next) => {
     .catch((error) => next(error));
 };
 
-Module.exports = authSignin;
+module.exports = authSignin;

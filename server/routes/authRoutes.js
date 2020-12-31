@@ -1,11 +1,11 @@
 const { Router } = require('express');
 const authController = require('../controllers/authControllers/authController.js');
 
-const auth = Router();
+const authRouter = Router();
 
 // input: js object with key-value pairs from shopping table
 // output: entire shopping table as JSON
-auth.post(
+authRouter.post(
   '/signup',
   authController.authSignup,
   authController.authCookie,
@@ -14,7 +14,7 @@ auth.post(
   },
 );
 
-auth.post(
+authRouter.post(
   '/signin',
   authController.authSignin,
   authController.authCookie,
@@ -22,3 +22,5 @@ auth.post(
     return res.redirect('/api/');
   },
 );
+
+module.exports = authRouter;
