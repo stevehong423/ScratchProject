@@ -1,18 +1,27 @@
-const db = require('../../dbSetup');
+const db = require('../../db');
 
 const authCookie = (req, res, next) => {
   // write code here
   let userId;
-  const qStr = `SELECT * FROM auth WHERE user_name = ${req.body.username};`;
+  const qStr = `SELECT * FROM auth WHERE user_name = '${req.body.username}';`;
+
   db.query(qStr)
     .then((record) => {
-      userId = JSON.stringify(record[0]._id).replace(/["']/g, '');
-      // console.log(typeof userId);
+      const user = record.rows[0];
+      const userId = user._id;
+      console.log('file: authCookie.js ~ line 12 ~ .then ~ userId', userId);
+
       res.cookie('ssid', userId, { httpOnly: true });
       res.locals.userId = userId;
+      console.log('end of authCookie');
       return next();
     })
-    .catch((err) => console.log(err));
+    .catch(() =>
+      next({
+        log: 'authController.authCookie error',
+        message: { err: 'SQL query failed' },
+      }),
+    );
 };
 
 module.exports = authCookie;

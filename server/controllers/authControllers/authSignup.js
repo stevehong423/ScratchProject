@@ -1,24 +1,32 @@
-const db = require('../../dbSetup.js');
-const bcrypt = require('bcrypt');
+const db = require('../../db.js');
+const bcrypt = require('bcryptjs');
 
 const authSignup = (req, res, next) => {
   // write code here
   // take user info from client
 
   console.log('in authSignup');
-  bcrypt
-    .hash(req.body.passkey, 10)
-    .then((hash) => {
-      const qStr = `INSERT INTO auth (user_name, passkey) VALUES (${req.body.username}, ${hash})
-      RETURNING *;`;
-      db.query(qStr)
-        .then((data) => {
-          res.locals.username = req.body.username;
-          return next();
-        })
-        .catch((err) => next(err));
-    })
-    .catch((bcryptError) => next(bcryptError));
+  bcrypt.hash(req.body.password, 10).then((hash) => {
+    let values = [req.body.username, hash];
+    const qStr = `INSERT INTO auth (user_name, passkey) VALUES($1, $2);`;
+    db.query(qStr, values)
+      .then((data) => {
+        res.locals.userId = data._id;
+        return next();
+      })
+      .catch(() =>
+        next({
+          log: 'authController.authSignup error',
+          message: { err: 'bcrypt failed' },
+        }),
+      )
+      .catch(() =>
+        next({
+          log: 'authController.authSignup error',
+          message: { err: 'SQL query failed' },
+        }),
+      );
+  });
 };
 
 module.exports = authSignup;

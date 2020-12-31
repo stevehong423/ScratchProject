@@ -1,4 +1,4 @@
-const db = require('../../dbSetup.js');
+const db = require('../../db.js');
 
 const shoppingSubmit = (req, res, next) => {
   const newItem = req.body.newItem;
