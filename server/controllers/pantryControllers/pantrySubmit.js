@@ -1,7 +1,7 @@
 const db = require('../../db.js');
 
 const pantrySubmit = (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     let {
         item_name,
@@ -11,10 +11,10 @@ const pantrySubmit = (req, res, next) => {
         category,
         par
     } = req.body;
-    // let userId = res.locals.userId;
+    let userId = res.locals.userId;
 
     // for testing
-    let userId = 1;
+    // let userId = 1;
 
     let insert = `INSERT INTO pantry (user_id, item_name, note, unit, qty, category, par) VALUES ($1, $2, $3,
         $4, $5, $6, $7);`;
