@@ -3,10 +3,10 @@ const db = require('../../db.js');
 const pantryDelete = (req, res, next) => {
     let id = req.params.id;
 
-    let deletePantry = `DELETE FROM pantry WHERE id = $1;`;
+    let deletePantry = `DELETE FROM pantry WHERE _id = $1;`;
     let values = [id];
 
-    db.query(deletePantry, id)
+    db.query(deletePantry, values)
         .then(() => {
             return next();
         })
